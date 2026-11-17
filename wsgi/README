@@ -2,4 +2,8 @@ Setup for django, uwsgi, and NGinX
 
 Following tutorial from here: http://uwsgi-docs.readthedocs.org/en/latest/tutorials/Django_and_nginx.html
 
- 
+nginx configuration files:
+* svpb_nginx.conf: production (SSL via letsencrypt, host check for mein.svpb.de)
+* svpb_nginx.local.conf: development VM (settings.vm), HTTP only, accepts any host
+* svpb_nginx_common.conf: locations and general settings shared by both (included from within the server block)
+The ansible playbook links the matching file to /etc/nginx/conf.d/ - no file has to be edited.
